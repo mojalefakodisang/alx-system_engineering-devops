@@ -1,0 +1,2 @@
+#!/bin/bash
+counter=0; while IFS= read -r line; do ((counter++ % 2)) && echo "$line"; done
