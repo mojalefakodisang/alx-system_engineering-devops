@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Displays numbers from 1 to 20, but:
+#  "bad luck from China" at 4th iteration
+#  "bad luck from Japan" at 9th iteration
+#  "bad luck from Italy" at 17th iteration
+
+count=1
+
+while [ $count -le 20 ]
+do
+	echo "Best School"
+	case $count in
+		"4") echo "bad luck from China";;
+		"9") echo "bad luck from Japan";;
+		"17") echo "bad luck from Italy";;
+	esac
+	(( count++ ))
+done
