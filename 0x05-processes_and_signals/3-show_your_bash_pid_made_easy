@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Script that displays the PID, with the process name
+
+pids=$(pidof -x bash)
+
+for pid in $pids; do
+	p_name=$(tr '\0' ' ' </proc/"$pid"/cmdline)
+	echo "$pid $p_name"
+done
