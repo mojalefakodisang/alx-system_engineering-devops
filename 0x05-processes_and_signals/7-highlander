@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Script that displays 'To infinity and beyond' indefinetely and cannot be killed by SIGTERM signal
+
+trap "echo 'I am invincible!!!'" SIGTERM
+while true
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
