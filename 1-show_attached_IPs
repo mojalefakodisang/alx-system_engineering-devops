@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Configures an Ubuntu server to resolve localhost and facebook to different IP
+ifconfig | awk -F 'inet | netmask' '{print $2}' | awk NF
