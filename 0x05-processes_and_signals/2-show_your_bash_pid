@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# Script that displays lines containing Bash
-# shellcheck disable=SC2009
-ps aux | grep "aux"

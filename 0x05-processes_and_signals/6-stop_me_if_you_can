@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# Script that kill a process without using kill or killall
-
-pkill -o -f "4-to_infinity_and_beyond"

@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# Script that terminates a process that is SIGTERM trapped
-
-pkill -9 -o -f "7-highlander"
