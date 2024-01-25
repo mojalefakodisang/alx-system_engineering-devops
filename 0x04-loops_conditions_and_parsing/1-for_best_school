@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Script that prints Best School 10 times
+
+text="Best School"
+
+for i in {0..9}; do
+	echo "$text"
+	i=$((i + 1))
+done
