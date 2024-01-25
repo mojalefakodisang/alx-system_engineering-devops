@@ -14,5 +14,6 @@ do
 		"9") printf "bad luck from Japan\n" ;;
 		"17") printf "bad luck from Italy\n" ;;
 	esac
+
 	((counter++))
 done
