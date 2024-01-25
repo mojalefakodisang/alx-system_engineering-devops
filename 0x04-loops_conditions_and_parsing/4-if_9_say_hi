@@ -2,15 +2,13 @@
 # script that displays Best School 10 times, but for the 9th iteration
 # displays Best School and then Hi on a new line
 text="Best School"
-i=0
+counter=0
 
-while [ $i -lt 10 ]
+while [ $counter -lt 10 ]
 do
-	if [ $i -eq 8 ]; then
-		text_2="Hi"
-	else
-		text_2=$text
+	echo $text
+	if [ $counter -eq 8 ]; then
+		echo "Hi"
 	fi
-	echo "$text_2"
-	i=$((i + 1))
+	((counter++))
 done
