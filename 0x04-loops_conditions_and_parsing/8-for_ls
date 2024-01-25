@@ -2,13 +2,9 @@
 # Script that displays:
 # The content of the current directory
 # In a list format
-# Where only the part of the name after the first dash is displayed
+# Where only the part of the name after the first dash is display
 
-( ls . ) > list
-
-for str in $(<list)
+for list in *
 do
-	str=${str//[0-9]-/""}
-	echo "$str"
+	echo "$list" | cut -d '-' -f2-
 done
-rm list
