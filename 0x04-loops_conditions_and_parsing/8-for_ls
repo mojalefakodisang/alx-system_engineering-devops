@@ -11,4 +11,3 @@ do
 	str=${str//[0-9]-/""}
 	echo "$str"
 done
-rm list
