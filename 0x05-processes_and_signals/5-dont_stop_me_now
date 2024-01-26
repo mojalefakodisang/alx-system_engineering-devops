@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Terminates process executed by ./4-to_infinity_and_beyond
+filename="4-to_infinity_and_beyond"
+pid=$( pgrep -f $filename )
+kill -15 "$pid"
