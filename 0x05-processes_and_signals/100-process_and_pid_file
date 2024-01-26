@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Checks for SIGTERM, SIGINT and SIGQUIT and prints
+# appropriate message
+trap "echo 'Y U no love me?!'" SIGINT
+trap "echo 'I hate the kill command' && sudo rm -f '/var/run/myscript.pid' && exit 1" SIGQUIT SIGTERM
+trap "sudo rm -f '/var/run/myscript.pid' && exit 1" SIGQUIT
+sudo touch /var/run/myscript.pid
+while true
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
