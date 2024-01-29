@@ -5,17 +5,17 @@ filename="manage_my_process"
 
 if [ "$argument" = "start" ]; then
 	sudo ./$filename &
-	pgrep -f $filename > /var/run/my_process.pid
+	echo "$!" > /var/run/my_process.pid
 	echo "manage_my_process started"
 elif [ "$argument" = "stop" ]; then
-	kill -9 "$(cat /var/run/my_process.pid | tail -1 )"
+	kill -9 "$(cat /var/run/my_process.pid)"
 	sudo rm -f /var/run/my_process.pid
 	echo "manage_my_process stopped"
 elif [ "$argument" = "restart" ]; then
-	kill -9 "$(cat /var/run/my_process.pid | tail -1 )"
+	kill -9 "$(cat /var/run/my_process.pid)"
 	sudo rm -f /var/run/my_process.pid
 	./$filename &
-	pgrep -f $filename > /var/run/my_process.pid
+	echo "$!" > /var/run/my_process.pid
 	echo "manage_my_process restarted"
 else
 	echo "Usage: manage_my_process {start|stop|restart}"
