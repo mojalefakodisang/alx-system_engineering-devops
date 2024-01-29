@@ -8,11 +8,11 @@ if [ "$argument" = "start" ]; then
 	echo "$!" > /var/run/my_process.pid
 	echo "manage_my_process started"
 elif [ "$argument" = "stop" ]; then
-	kill -9 "$(cat /var/run/my_process.pid)"
+	kill "$(cat /var/run/my_process.pid)"
 	sudo rm -f /var/run/my_process.pid
 	echo "manage_my_process stopped"
 elif [ "$argument" = "restart" ]; then
-	kill -9 "$(cat /var/run/my_process.pid)"
+	kill "$(cat /var/run/my_process.pid)"
 	sudo rm -f /var/run/my_process.pid
 	./$filename &
 	echo "$!" > /var/run/my_process.pid
