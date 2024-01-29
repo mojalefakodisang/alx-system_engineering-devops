@@ -5,6 +5,7 @@ filename="manage_my_process"
 
 if [ "$argument" = "start" ]; then
 	sudo ./$filename &
+	touch /var/run/my_process.pid
 	echo "$!" > /var/run/my_process.pid
 	echo "manage_my_process started"
 elif [ "$argument" = "stop" ]; then
@@ -15,6 +16,7 @@ elif [ "$argument" = "restart" ]; then
 	kill "$(cat /var/run/my_process.pid)"
 	sudo rm -f /var/run/my_process.pid
 	./$filename &
+	touch /var/run/my_process.pid
 	echo "$!" > /var/run/my_process.pid
 	echo "manage_my_process restarted"
 else
