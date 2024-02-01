@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Displys listening ports wih PID and names of programs
+netstat -l -p
