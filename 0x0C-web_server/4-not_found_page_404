@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Script that configures a new Ubuntu machine to
+# install nginx
+apt-get update
+apt-get install -y nginx
+service nginx restart
+mkdir -p /var/www/html/
+echo "Hello World!" | tee /var/www/html/index.html > /dev/null
+echo "Ceci n'est pas une page" | tee /var/www/html/404.html > /dev/null
+
+redirect_url="https://github.com/mojalefakodisang"
+printf '%s\n' "server {
+	listen 80;
+	listen [::]:80;
+
+	server_name mojalefakodisang.tech www.mojalefakodisang.tech;
+	root /var/www/html;
+	index index.html index.htm;
+
+	location /redirect_me {
+		return 301 $redirect_url;
+	}
+	
+	error_page 404 /404.html;
+
+	location /404 {
+		root /var/www/html;
+		internal;
+	}
+}" > /etc/nginx/sites-available/default
+
+service nginx restart
