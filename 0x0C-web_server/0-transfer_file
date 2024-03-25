@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # Script that transfers a file from client to server
 
 if [ "$#" -le 3 ]; then
