@@ -9,15 +9,16 @@ mkdir -p /var/www/html/
 echo "Hello World!" | tee /var/www/html/index.html > /dev/null
 
 redirect_url="https://github.com/mojalefakodisang"
+host_name=$(hostname)
 printf '%s\n' "server {
 	listen 80;
 	listen [::]:80;
 
+	add_header X-Served-By \"$host_name\";
+
 	server_name mojalefakodisang.tech www.mojalefakodisang.tech;
 	root /var/www/html;
 	index index.html index.htm;
-
-	add_header X-Served-By 419373-web-02;
 
 	location /redirect_me {
 		return 301 $redirect_url;
