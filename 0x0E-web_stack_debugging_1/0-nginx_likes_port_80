@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Enables NGINX server on localhost
+
+# Install nginx if not installed
+apt-get update
+apt-get install -y nginx
+service nginx restart
+
+# Configure nginx server
+printf '%s\n' "
+server {
+	listen 80;
+	listen [::]:80;
+
+	root /var/www/html;
+	index index.html index.html index.nginx-debian.html;
+}" > /etc/nginx/sites-available/default
+
+service nginx restart
