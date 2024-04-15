@@ -1,6 +1,4 @@
-#!/bin/bash
-apt-get install -y ufw
-ufw reset
+#!/usr/bin/env bash
 ufw default deny incoming
 ufw allow 22/tcp
 ufw allow 443/tcp
