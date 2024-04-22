@@ -3,8 +3,8 @@
 """
 
 if __name__ == '__main__':
-    import sys
     import requests
+    import sys
 
     user_id = int(sys.argv[1])
     basename = "https://jsonplaceholder.typicode.com/"
