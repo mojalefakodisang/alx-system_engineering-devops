@@ -34,12 +34,12 @@ def count_words(subreddit, word_list, found_list=[], after=None):
         else:
             result = {}
             for word in found_list:
-                if word.lower() in results.keys():
+                if word.lower() in result.keys():
                     result[word.lower()] += 1
                 else:
                     result[word.lower()] = 1
-            for k, v in sorted(result.items(), key=lamda item: item[1],
+            for k, v in sorted(result.items(), key=lambda item: item[1],
                                reverse=True):
-                print('{}:{}'.format(k, v))
+                print('{}: {}'.format(k, v))
     else:
         return
