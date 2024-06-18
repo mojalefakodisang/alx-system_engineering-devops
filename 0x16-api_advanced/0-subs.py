@@ -10,8 +10,9 @@ def number_of_subscribers(subreddit):
 
     headers = {
             'Accept': 'application/json',
-            'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) \
-                    Chrome/111.0.0.0'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) \
+                    AppleWebkit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 \
+                    Safari/537.36'
     }
     url = "{}/r/{}/about/.json".format(base_url, subreddit)
 
