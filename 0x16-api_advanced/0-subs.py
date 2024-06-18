@@ -5,13 +5,17 @@ import requests
 
 def number_of_subscribers(subreddit):
     """Queries a Reddit subreddit and return number of subscribers"""
-    if (subreddit is None or len(subreddit) < 1
-            or not isinstance(subreddit, str) is True):
-        return 0
+    base_url = "https://www.reddit.com"
+    end_point = "/subreddits/search"
 
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    headers = {
+            'Accept': 'application/json',
+            'User-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) \
+                    Chrome/111.0.0.0'
+    }
+    url = "{}/r/{}/about/.json".format(base_url, subreddit)
 
-    response = requests.get(url)
+    response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code == 200:
         d_json = response.json()
         return d_json['data']['subscribers']
