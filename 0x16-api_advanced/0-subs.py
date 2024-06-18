@@ -2,10 +2,11 @@
 """Module that queries the Reddit API"""
 import requests
 
+
 def number_of_subscribers(subreddit):
     """Queries a Reddit subreddit and return number of subscribers"""
-    if subreddit == None or len(subreddit) < 1 \
-    or not isinstance(subreddit, str) == True:
+    if (subreddit is None or len(subreddit) < 1
+            or not isinstance(subreddit, str) is True):
         return 0
 
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
