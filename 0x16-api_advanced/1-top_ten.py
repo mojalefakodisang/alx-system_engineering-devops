@@ -19,7 +19,6 @@ def top_ten(subreddit):
                        sort=top&limit=10".format(base_url, subreddit),
                        headers=headers, allow_redirects=False)
 
-    print('{}/r/{}/about/.json?sort=top&limit=10'.format(base_url, subreddit))
     if res.status_code == 200:
         for post in res.json()['data']['children'][0:10]:
             print(post['data']['title'])
