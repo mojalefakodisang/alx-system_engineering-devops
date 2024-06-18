@@ -7,19 +7,16 @@ import requests
 base_url = "https://www.reddit.com"
 
 headers = {
-            'Accept': 'application/json',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) \
-                    AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 \
-                    Safari/537.36'
+        'User-Agent': 'linux:0x16.api.advanced:v1.0.0 (by /u/bdov_)'
 }
 
 
 def number_of_subscribers(subreddit):
     """Queries a Reddit subreddit and return number of subscribers"""
-    res = requests.get("{}/r/{}/about.json".format(base_url, subreddit),
-                       headers=headers, allow_redirects=False)
+    url = base_url + f'/r/{subreddit}/about.json'
 
-    if res.status_code == 200 and 'subscribers' in res.json()['data']:
-        return res.json()['data']['subscribers']
-    else:
+    res = requests.get(url, headers=headers, allow_redirects=False)
+    if res.status_code == 404:
         return 0
+    results = res.json().get('data')
+    return results.get('subscribers')
